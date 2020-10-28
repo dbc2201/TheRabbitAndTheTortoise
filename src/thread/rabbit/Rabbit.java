@@ -19,9 +19,29 @@ public class Rabbit implements Runnable {
     @Override
     public void run() {
         for (int index = 0; index < MILESTONES; index++) {
-            System.out.printf("The Rabbit has completed %.2f %% of the race!\n",
-                    index * (100.0f / MILESTONES)
-            );
+            switch (index) {
+                case 0:
+                    System.out.println("The Rabbit has started from the start line!");
+                    break;
+                case 1:
+                    System.out.println("The Rabbit has reached the Cool River!");
+                    break;
+                case 2:
+                    System.out.println("The Rabbit has reached the Mountain Hill!");
+                    break;
+                case 3:
+                    System.out.println("The Rabbit has reached the Big Oak Tree!");
+                    System.out.println("The Rabbit is leading and hence is going to sleep!");
+                    try {
+                        Thread.sleep(9000L);
+                    } catch (InterruptedException e) {
+                        System.err.println("The Rabbit's sleep got interrupted!");
+                    }
+                    break;
+                case 4:
+                    System.out.println("The Rabbit has reached the finish line!");
+                    break;
+            }
             try {
                 Thread.sleep(1500L);
             } catch (InterruptedException e) {
